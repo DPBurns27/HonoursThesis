@@ -1,0 +1,9 @@
+\begin{tikzpicture}
+
+\draw[ thick]  (-1,1) rectangle (2,0) node[midway] {CCAM};
+\draw[ thick]   (4,1) rectangle (7,0) node[midway] {CTM};
+\draw[ thick]   (9,1) rectangle (12,0) node[midway] {GLOMAP-m};
+\draw [-latex,  thick] (2,0.5) -- (4,0.5);
+\draw[-latex,  thick] (7,0.5) -- (9,0.5);
+\draw[-latex,  thick] (10.5,1) arc (-180:0:-2.5);
+\end{tikzpicture}

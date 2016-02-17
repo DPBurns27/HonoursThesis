@@ -1,0 +1,513 @@
+ \documentclass[11pt,a4paper]{report}
+%%% Preamble %%%
+
+% Packages: I comment ones I don't need or am not using to cut down on compiling time.
+
+	% Default: AMS maths packages
+
+		\usepackage{amsmath}
+		\usepackage{amssymb}
+		\usepackage{amsfonts}
+		\usepackage{mathtools}
+	%	\mathtoolsset{showonlyrefs}
+
+	%		\usepackage[amsmath,thmmarks]{ntheorem}
+
+	% Geometry: The layout of the document.
+
+		\usepackage[margin=1.4in]{geometry}
+
+	%  	\usepackage[width = 15 cm, left = 3 cm, height = 23 cm, top = 3 cm]{geometry} % A4 Paper, W = 21 cm, H = 29.7 cm. Paperwidth = left + w`'idth + right, Paperlength = top + height + bottom.
+
+	 	\usepackage{multicol} % Used to switch to two column mode.
+	 	\setlength{\columnsep}{0.75cm} % Determines the length between columns
+
+	% Graphics: Allows images.
+
+	 	\usepackage{graphicx} % Used to include images.
+	% 	\usepackage{epstopdf} % Required in pdflatex for eps images.
+	 	\usepackage{float} % For figures in multicolumn`'
+	% 	\usepackage{wrapfig} % Used to have multiple figures in a single beamer slide.
+
+	% 	\graphicspath{ {./Figures/} } % The location of figures used in this document.
+
+	% Diagrams: Diagram creation.
+
+	 	\usepackage{tikz} % Creates diagrams, needs calc for arithmatic.
+		\usepackage{tikzscale}
+	 	\usepackage{pgfplots}
+	 	\usepackage{calc}
+
+	% Figures: Extends figure functionality, allows multiple figures per float environment.
+
+	 	\usepackage{caption} % Needed for subcaption.
+	 	\usepackage{subcaption} % Allows creation of subfigures, which allows multiple labelled figures per environment.
+	 	\usepackage{tabu}
+
+	 	\pgfplotsset{compat=1.12}
+
+	% Tables: Extends table functionalirt, allows multiple page tables.
+
+	 	%\usepackage{xtab} % Extended tables.
+
+	% Titles: Modifies titles, especially for multicolumns
+
+	% 	\usepackage{titlesec}
+
+	% 	\titleformat{\section}
+	% 		{\normalfont\Large\bfseries\centering}
+	% 		{\thesection}{1ex}{}
+
+	% 	\titleformat{\subsection}
+	% 		{\normalfont\large\bfseries\centering}
+	% 		{\thesubsection}{1ex}{}
+
+	% Theorems: Defines theorems, axioms, definitions, etc in a custom environment.
+
+	% 	\usepackage{amsthm} % Needed for the definitions
+
+	% 	%This style is in italics and can be used as a subsection
+	% 	\newtheoremstyle{conditionStyle}% Name
+	% 		{3pt}% Space above
+	% 		{3pt}% Space below
+	% 		{}% Body font
+	% 		{\parindent}% Indent amount
+	% 		{\itshape}% Theorem ead font
+	% 		{:}% Punctuation after theorem ead
+	% 		{.5em}% Space after theorem ead
+	% 		{}% Theorem head spec (can be left empty, meaning `normal')
+
+	% 	\newtheoremstyle{solutionStyle}% name of the style to be used
+	% 		{3pt}% measure of space to leave above the theorem. E.g.: 3pt
+	% 		{3pt}% measure of space to leave below the theorem. E.g.: 3pt
+	% 		{}% name of font to use in the body of the theorem
+	% 		{}% measure of space to indent
+	% 		{\bfseries}% name of head font
+	% 		{:}% punctuation between head and body
+	% 		{.5em}% space after theorem head; " " = normal interword space
+	% 		{}% Manually specify head
+
+	% 	\newtheorem{axiom}{Axiom}
+	% 	\newtheorem{property}{Property}
+	% 	\newtheorem{rl}{Rule}
+	% 	\newtheorem{law}{Law}		
+	% 	\newtheorem{thm}{Theorem}
+	% 	\newtheorem{ex}{Example}
+	% 	\newtheorem{prn}{Principle}
+	% 	\newtheorem{prf}{Proof}
+
+	% 	\theoremstyle{definition}
+	% 	\newtheorem{exc}{Excercise}
+	% 	\newtheorem{defn}{Definition}
+	% 	\newtheorem{clm}{Claim}
+	% 	\newtheorem{sol}{Solution}	
+	% 	\newtheorem{qst}{Question}
+
+	% 	\theoremstyle{conditionStyle}
+	% 	\newtheorem{condition}{Condition}[rl]
+
+	% 	\theoremstyle{solutionStyle}
+	% 	\newtheorem{qsol}{Solution}[qst]
+
+	% Utility: Packages that add extra functionality.
+
+	% 	\usepackage{xcolor} % Used to make footnote numbering red.
+	 	\usepackage{esdiff} %easy differentials eg. \diff[n]{y}{x}, \diffp[n]{y}{x}.
+	 	\usepackage{verbatim} % Used to write code.
+	% 	\usepackage{lipsum} % Generates Lorem Ipsum.
+	%	\usepackage{textcomp} % Provides roman greek letters.
+	% 	\usepackage{eurosym} % Provides accurate euro symbol.
+	% 	\usepackage{enumerate} % Needed for lists that use lower case roman numerals.
+
+	% Datetime: Changes the date.
+
+		\usepackage[UKenglish]{isodate}% Used to change the date format.
+		\cleanlookdateon % Removes the ordinal suffix
+
+	% Siunitx: has a good implimentation for using units within latex
+		\usepackage{siunitx}
+		% example command is \SI{}{\micro\meter}
+
+	% Makes the pages look more fancy
+
+		\usepackage{fancyhdr}
+		\pagestyle{fancy}
+
+		\fancyhf{}
+		\fancyhead[LE]{\rightmark}
+		\fancyhead[RO]{\leftmark}
+		\fancyfoot[C]{\thepage}
+
+		\setlength{\headheight}{15.0pt}
+		\renewcommand{\footrulewidth}{0.4pt}
+
+		% Page Style of new chapter pages.
+		\fancypagestyle{plain}{%
+			\fancyhf{} % clear all header and footer fields
+			\fancyfoot[C]{\thepage} % except the center
+			\renewcommand{\headrulewidth}{0pt}
+			\renewcommand{\footrulewidth}{0.4pt}
+		}
+
+	% Custom accents
+
+	% \usepackage{accents}
+	
+	% \newlength{\dtildeheight}
+	% \newcommand{\doubletilde}[1]{%
+	%     \settoheight{\dtildeheight}{\ensuremath{\tilde{#1}}}%
+	%     \addtolength{\dtildeheight}{-0.35ex}%
+	%     \tilde{\vphantom{\rule{1pt}{\dtildeheight}}%
+	%     \smash{\tilde{#1}}}}
+
+	% Tocbibind: These settings put the bibliography into the contents
+		%\usepackage[nottoc]{tocbibind}
+
+	% BibLaTeX: The citestyles and bib file used in citations are edited here.
+
+		\usepackage[hyperref=true,backref=true,backend=biber,style=authoryear,url=false,natbib,doi=true,maxcitenames=1,uniquelist=false]{biblatex} % Additional functionality for bibtex, use sorting=none to order in terms of appearance rather than alphabetically. Citestyle authoryear for author name or numeric-comp for a number in square brackets.
+		\addbibresource{Bibliography.bib}
+		\DeclareNameAlias{sortname}{last-first}
+		\DeclareNameAlias{default}{last-first}
+
+		% \renewcommand*{\bibfont}{\footnotesize}
+
+		% \usepackage[utf8]{inputenc} % Allows unicode, so that umlauts will appear in the bibliography
+
+	% Microtyping: The microtype package has several options that affect the way the document is compiled, these go here.
+
+		\usepackage[final,tracking=true,kerning=true,spacing=true]{microtype}
+		\microtypecontext{spacing=nonfrench}
+
+	% Nomencl: Allows for the use of the nomeclature function and lets you print the nomenclature in your document
+	% \nomenclature{a}{the letter a} and \printnomenclature and \makenomenclature are used.
+		\usepackage[intoc]{nomencl}
+		\makenomenclature
+		\renewcommand{\nomname}{Abbreviations}
+
+	% Titlesec: Changes the way titles are handled for chapters and sections
+
+		\usepackage{titlesec}
+		\titleformat{\chapter}{\huge\bf}{\thechapter.}{20pt}{\huge\bf}
+
+	% Setspace: Lets you change the spacing between lines
+
+		\usepackage{setspace}
+		\onehalfspacing
+
+	% Needed for running glossary
+		\usepackage{etoolbox}
+		\robustify{\mathrm}
+
+	% Hyperref: Hyperref is loaded last because it changes alot of settings.
+
+		\usepackage[backref=true,bookmarks=true,pdfborder={0 0 0},urlcolor=blue]{hyperref} % For hyperlinks without borders.
+		\hypersetup{%
+  			colorlinks  = true,
+  			citecolor   = black,
+  			linkcolor   = black,
+		}
+	% Cleveref: Allows references to labels within the report without needing to type 'figure' beforehand. Must be loaded after hyperref.
+		\usepackage[noabbrev]{cleveref}
+
+		\usepackage[parfill]{parskip}
+
+	% Glossaries: Impliments a system for dealing with glossary terms, including abbreviations, nomenclature etc...
+	% Must appear after hyperref
+		\usepackage[hyperfirst=false,toc]{glossaries}
+		\newglossary*{chem}{Chemicals}
+		\newglossary*{abbr}{Abbreviations}
+		\makenoidxglossaries %Doesn't need makeindex runs
+		%\makeglossaries %Does need makeindex runs
+
+		%Full example
+		%\newglossaryentry{dms}
+		%{% This entry goes in the ‘notation’ glossary:
+		%type=chem,
+		%name={$\mathrm{DMS}$},
+		%plural={},
+		%text={\mathrm{DMS}},
+		%description={Dimethyl sulfide}%,
+		%sort={S}
+		%}
+
+		% Chemicals
+		\newglossaryentry{dms}{
+		type=chem,
+		name={$\mathrm{DMS}$},
+		description={Dimethyl sulfide}}
+		\newglossaryentry{dmsp}{
+		type=chem,
+		name={$\mathrm{DMSP}$},
+		description={Dimethylsulfoniopropionate}}
+		\newglossaryentry{dmso}{
+		type=chem,
+		name={$\mathrm{DMSO}$},
+		description={Dimethyl sulfoxide}}
+		\newglossaryentry{dmsot}{
+		type=chem,
+		name={$\mathrm{DMSO}_2$},
+		description={Dimethyl sulfone}}
+		\newglossaryentry{sot}{
+		type=chem,
+		name={$\mathrm{SO}_2$},
+		description={Sulfur dioxide}}
+		\newglossaryentry{msa}{
+		type=chem,
+		name={$\mathrm{MSA}$},
+		description={Methane sulfonic acid}}
+		\newglossaryentry{msia}{
+		type=chem,
+		name={$\mathrm{MSIA}$},
+		description={Methane sulphinic acid}}
+		\newglossaryentry{oh}{
+		type=chem,
+		name={$\mathrm{OH}$},
+		description={Hydroxide}}
+		\newglossaryentry{no3}{
+		type=chem,
+		name={$\mathrm{NO}_3$},
+		description={Nitrate}}
+		\newglossaryentry{h2o}{
+		type=chem,
+		name={$\mathrm{H}_2\mathrm{O}$},
+		description={Water}}
+		\newglossaryentry{hp}{
+		type=chem,
+		name={$\mathrm{H}^+$},
+		description={Hydrogen}}
+		\newglossaryentry{o3}{
+		type=chem,
+		name={$\mathrm{O}_3$},
+		description={Ozone}}
+		\newglossaryentry{h2so4}{
+		type=chem,
+		name={$\mathrm{H}_2\mathrm{SO}_4$},
+		description={Sulfuric acid}}
+		\newglossaryentry{amsu}{
+		type=chem,
+		name={$(\mathrm{NH}_4)_2\mathrm{SO}_4$},
+		description={Ammonium sulphate}}
+				
+
+		% Abbreviations
+		\newglossaryentry{gbr}{
+		type=abbr,
+		name={GBR},
+		description={Great Barrier Reef}}
+		\newglossaryentry{mbl}{
+		type=abbr,
+		name={MBL},
+		description={Marine Boundary Layer}}
+		\newglossaryentry{pbl}{
+		type=abbr,
+		name={PBL},
+		description={Planetary Boundary Layer}}
+		\newglossaryentry{ccn}{
+		type=abbr,
+		name={CCN},
+		description={Cloud Condensation Nuclei}}
+		\newglossaryentry{tapm}{
+		type=abbr,
+		name={TAPM},
+		description={The Air Pollution Model}}
+		\newglossaryentry{ctm}{
+		type=abbr,
+		name={CTM},
+		description={The Chemical Transport Model}}
+		\newglossaryentry{glomap}{
+		type=abbr,
+		name={GLOMAP},
+		description={The GLObal Model of Aerosol Processes}}
+		\newglossaryentry{ccam}{
+		type=abbr,
+		name={CCAM},
+		description={The Conformal-Cubic Amtospheric Model}}
+		\newglossaryentry{hysplit}{
+		type=abbr,
+		name={HYSPLIT},
+		description={The HYbrid Single Particle Lagrangian Integrated Trajectory model}}
+		\newglossaryentry{claw}{
+		type=abbr,
+		name={CLAW},
+		description={The Charlson Lovelock Andreae Warren hypothesis}}
+		\newglossaryentry{csiro}{
+		type=abbr,
+		name={CSIRO},
+		description={Commonwealth Scientific and Industrial Research Organisation}}
+		\newglossaryentry{pase}{
+		type=abbr,
+		name={PASE},
+		description={Pacific Atmospheric Sulfur Experiment}}
+		\newglossaryentry{nss}{
+		type=abbr,
+		name={NSS},
+		description={Non-Sea-Salt}}
+		\newglossaryentry{um}{
+		type=abbr,
+		name={UM},
+		description={Unified Model}}
+		\newglossaryentry{ukca}{
+		type=abbr,
+		name={UKCA},
+		description={United Kingdom Chemistry \& Aerosols model}}
+		\newglossaryentry{glomapm}{
+		type=abbr,
+		name={GLOMAP-mode},
+		description={The mode seperated version of GLOMAP}}
+		\newglossaryentry{gcm}{
+		type=abbr,
+		name={GCM},
+		description={Global Climate Model}}
+		\newglossaryentry{rcm}{
+		type=abbr,
+		name={RCM},
+		description={Regional Climate Model}}
+		\newglossaryentry{pdf}{
+		type=abbr,
+		name={PDF},
+		description={Probability Density Function}}
+		\newglossaryentry{sst}{
+		type=abbr,
+		name={SST},
+		description={Sea Surface Temperature}}
+		\newglossaryentry{ft}{
+		type=abbr,
+		name={FT},
+		description={Free Troposphere}}
+		\newglossaryentry{rh}{
+		type=abbr,
+		name={RH},
+		description={Relative Humidity}}
+		
+
+% Command Creation: I comment out the ones I don't need, but keep them as templates for future commands.
+
+	% \renewcommand\thefootnote{\textcolor{red}{\arabic{footnote}}} % Will make the indecies used in footnotes red.
+
+	\newcommand{\degrees}{\, ^{\circ}\mathrm{C}}
+	%\newcommand{\cmc}{$\mathrm{cm}^{-3}$}
+
+	% For tables in multicolumn.
+
+	% \makeatletter
+	% 	\newenvironment{tableplease}
+	% 	  {\def\@captype{table}}
+	% 	  {}
+ 	%  	\makeatother
+
+ 	%  	For centering tables in multicolumn, eliminates unwanted vertical space.
+
+	% \newenvironment{tightcenter}{%
+	%  \setlength\topsep{0pt}
+	%  \setlength\parskip{0pt}
+	%  \begin{center}
+	% }{%
+	%  \end{center}
+	% }`'
+
+	% Custom Counter Numbering
+
+	% \numberwithin{equation}{qsol} % Equation numbers will follow the numbering scheme of qsol.
+
+%-------------------------------------------------------------------------------------------------%
+% Notes
+% Remember you can have feedback occuring between sections, just link to the section name, e.g. As seen in section 2.2, DMS oxidises into SO2. The point is, your structure does not force you into a strict ordering of ideas.
+
+
+% Todo:
+	% General
+		% Get bookmarks working properly
+		% Insert pdf metadata through hyperref
+	% Abbrev:
+		% Make seperate chemical and abbreviation nomenclatures
+	% Pre-submit
+		% Check through your references and make sure they are all correct
+
+% Done:
+	% Don't forget to put the list of sections in
+	% Get backref working properly
+	% Get bibliography to appear in toc
+	% Put the title of the section youre in at the top of the page like in nassibs thesis
+	% Get abbreviations to appear in toc
+	% Get abbreviations to link to the abbrev page
+	% hyperref doesnt seem to see the abbreviation page :(
+
+%-------------------------------------------------------------------------------------------------%
+% Title: The title that appears in the report is edited here.
+	%\renewcommand*\rmdefault{helvetica}
+
+	\title{ 
+	 	\begin{figure}[h]
+	 	    \centering
+	 	    \includegraphics[scale=0.75]{Fig/QUT_Square_Black.eps}
+	 	    %\caption{}
+	 	    %\label{fig:}
+	 	\end{figure}
+			\textbf{ST10 Bachelor of Science (Honours)} \\
+			~\\
+			\Huge 
+			\textbf{Literature Review} \\
+			~\\
+			\Large
+			\textbf{Exploring the Nature of Dimethyl Sulphide and its Effects on Cloud Cover in the Great Barrier Reef} \\
+	}
+	\author{\textbf{David Burns}\\
+			Supervisor: Professor Zoran Ristovski}
+	\date{\today}
+	
+\begin{document}
+
+%-------------------------------------------------------------------------------------------------%
+% All the pre writing pages are introduced here
+\pagenumbering{roman}
+
+\maketitle
+
+\newpage
+
+\newpage % Here to make the first page blank so when printed double sided the first page is on the right
+
+\include{Ch_Abstract}
+
+\include{Ch_Acknowledgements}
+
+\include{Ch_Declaration}
+
+\tableofcontents
+
+\newpage
+
+\printnoidxglossaries
+
+\newpage
+
+%-------------------------------------------------------------------------------------------------%
+% All the actual writing pages are introduced here
+
+\pagenumbering{arabic}
+
+\part{Literature Review}
+
+\include{Ch_Introduction}
+
+\include{Ch_Atmosphere}
+
+\include{Ch_Dimethylsulfide}
+
+\include{Ch_GBR}
+
+\include{Ch_Modelling}
+
+\include{Ch_DMSClimatology}
+
+\include{Ch_Summary}
+
+\part{Research} % Please edit this biz 
+
+
+%-------------------------------------------------------------------------------------------------%
+% Bibliography is inserted
+\newpage
+\printbibliography[heading=bibintoc]%[heading=bibnumbered]
+\end{document}
