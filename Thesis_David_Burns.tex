@@ -436,78 +436,16 @@
 	% Get abbreviations to link to the abbrev page
 	% hyperref doesnt seem to see the abbreviation page :(
 
-%-------------------------------------------------------------------------------------------------%
-% Title: The title that appears in the report is edited here.
-	%\renewcommand*\rmdefault{helvetica}
-
-	% \title{ 
-	%  	\begin{figure}[h]
-	%  	    \centering
-	%  	    \includegraphics[scale=1.5]{Fig/QUT_Square_Black.eps}
-	%  	    %\caption{}
-	%  	    %\label{fig:}
-	%  	\end{figure}
-	% 		%\textbf{ST10 Bachelor of Science (Honours)} \\
-	% 		%~\\
-	% 		%\Huge 
-	% 		%\textbf{Honours Thesis} \\
-	% 		~\\
-	% 		%\rule{\textwidth}{2pt} \\
-	% 		\leavevmode\leaders\hrule height 0.7ex depth \dimexpr1pt-0.7ex\hfill\kern0pt
-	% 		\\
-	% 		\LARGE
-	% 		\textbf{Exploring the Nature of Dimethyl Sulphide and its Effects on Cloud Cover in the Great Barrier Reef} \\
-	% 		\leavevmode\leaders\hrule height 0.7ex depth \dimexpr1pt-0.7ex\hfill\kern0pt
-	% }
-	% \author{\textbf{David Burns}\\
-	% 		Supervisor: Professor Zoran Ristovski}
-	% \date{\today}
-
-	% A thesis submitted for the degree of Bachelor of Science (Honours)
-	% Discipline of Nanotechnology and Molecular Science, School of Chemistry, Physics and Mechanical Engineering, Science and Engineering Faculty,
-	% Queensland University of Technology,
-	% Brisbane, Australia
-	
-\begin{document}
-
-\begin{titlepage}
-	\begin{center}
-		\begin{figure}[h]
-	 	    \centering
-	 	    \includegraphics[scale=1.5]{Fig/QUT_Square_Black.eps}
-	 	    %\caption{}
-	 	    %\label{fig:}
-	 	\end{figure}
-	 	~\\
-		\leavevmode\leaders\hrule height 0.7ex depth \dimexpr1pt-0.7ex\hfill\kern0pt\\
-		\LARGE
-		\textbf{Exploring the Nature of Dimethyl Sulphide and its Effects on Cloud Cover in the Great Barrier Reef} \\
-		\leavevmode\leaders\hrule height 0.7ex depth \dimexpr1pt-0.7ex\hfill\kern0pt\\
-		%~\\
-		%~\\
-		\vfill
-		\textbf{David Burns}\\
-		Supervisor: Professor Zoran Ristovski\\
-		\vfill
-		\printdayoff
-		\today
-		\\
-		\vfill
-		\large
-		\textit{A thesis submitted for the degree of Bachelor of Science (Honours)}\\
-		Queensland University of Technology\\
-		School of Chemistry, Physics, and Mechanical Engineering
-
-	\end{center}
-\end{titlepage}
 
 %-------------------------------------------------------------------------------------------------%
 % All the pre writing pages are introduced here
+\begin{document}
+
+\include{P0_Title}
+
 \pagenumbering{roman}
 
-%\maketitle
-
-\include{P0_Ch_Declaration}
+\include{P0_Declaration}
 
 \include{P0_Ch_Abstract}
 
