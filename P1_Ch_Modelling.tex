@@ -35,7 +35,7 @@ The first choice to make when deciding which model to use is between a Global Cl
 	\section{Back Trajectory Modelling}
 	\label{sec:backtraj}
 
-	When working in atmospheric science, it is often necessary to produce an idea of where a particular parcel of air has travelled from. With the advent of large scale meteorological measurements, the data required to model this process is now being produced. Trajectory modelling is able to take a particular location and predict, forward or backward in time, the path a parcel of air has taken to get there. It can be used to predict whether air at a particular location has passed over a region or event of interest or, for example, whether there has been contamination from anthropogenic sources \citep{draxler:1998vr}.
+	When working in atmospheric science, it is often necessary to produce an idea of where a particular parcel of air has travelled from. With the advent of large scale meteorological measurements, the data required to model this process is now being produced. Trajectory modelling is able to take a particular location and predict, forward or backward in time, the path a parcel of air travels to or from that location. It can be used to predict whether air at a particular location has passed over a region or event of interest or, for example, whether there has been contamination from anthropogenic sources \citep{draxler:1998vr}.
 
 	\gls{hysplit} is the Hybrid Single Particle Lagrangian Integrated Trajectory model developed by the National Oceanic and Atmospheric Administration and Australia's Bureau of Meteorology. It takes as input a variety of different meteorological data sources to produce the field the parcel travels through. \gls{hysplit}'s efficacy in performing back trajectory modelling is well established \citep{draxler:1998vr}. It has been used to model many different scenarios from forecasting fire smoke movement \citep{rolph:2010in} to nuclear cloud dispersion \citep{rolph:2014kk}.
 
@@ -150,14 +150,14 @@ The first choice to make when deciding which model to use is between a Global Cl
 	    	\label{fig:sydpartgrid}
 		\end{figure}
 
-		\gls{ctm} is also written in FORTRAN, but allows for chemical reactions to be entered as regular form chemical equations \citep{cope:2009tz}. It requires a meteorological map as input, along with initial and boundary conditions for each chemical being tracked. Maps for the introduction of chemicals from the surface to the atmosphere are also required, such as when \gls{dms} is produced by the \gls{gbr}. \gls{ctm} outputs atmospheric maps of chemical concentrations.
+		\gls{ctm} is written in FORTRAN, but allows for chemical reactions to be entered as regular form chemical equations \citep{cope:2009tz}. It requires a meteorological map as input, along with initial and boundary conditions for each chemical being tracked. Maps for the introduction of chemicals from the surface to the atmosphere are also required, such as when \gls{dms} is produced by the \gls{gbr}. \gls{ctm} outputs atmospheric maps of chemical concentrations.
 
 %--------------------------------------------------------------------------------------------------------------------------%
 
 		\subsection{GLOMAP and GLOMAP-mode}
 		\label{subsec:glomap}
 
-		\gls{glomap} is the aerosol micro-physics component of the \gls{ukca} model developed at Leads university. It uses atmospheric information and chemical concentrations to simulate the large amount of interactions aerosols undergo. It models new particle formation, condensation, cloud processing, hygroscopic growth and many other aerosol processes \citep{mann:2010wb}.
+		\gls{glomap} is the aerosol micro-physics component of the \gls{ukca} model developed at Leeds university. It uses atmospheric information and chemical concentrations to simulate the large amount of interactions aerosols undergo. It models new particle formation, condensation, cloud processing, hygroscopic growth and many other aerosol processes \citep{mann:2010wb}.
 
 		\gls{glomapm} is an alternate version of \gls{glomap} which segregates aerosols via modes (see \cref{sec:aerosols}) rather than the \gls{glomap}'s direct bin approach. \gls{glomapm} also uses the equilibrium Henry's law style aqueous phase reactions recommended by \citet{barnes:2006ug}, while \gls{glomap} uses a more computationally expensive diffusion limited method \citep{mann:2010wb}. Both differences make \gls{glomapm} less accurate, but also less computationally expensive. Some treatments of particles are also adjusted to better make use of the modal structure. An example is that \gls{glomap} applies rain-out to any particles over \SI{103}{\nm}, while \gls{glomapm} applies rain-out to soluble particles in the accumulation and coarse modes \citep{mann:2010wb}. For modelling \gls{dms} and its aerosol products, \gls{glomap} uses the sulphur oxidation steps outlined in \citet{seinfeld2012atmospheric} and precomputed Henry's law coefficients \citep{mann:2010wb}. 
 

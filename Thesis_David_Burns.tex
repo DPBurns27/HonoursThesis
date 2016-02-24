@@ -174,6 +174,9 @@
 
 		% \usepackage[utf8]{inputenc} % Allows unicode, so that umlauts will appear in the bibliography
 
+	% Datetime2: Lets the user define a number of different styles for the \today command
+		%\usepackage[en-GB]{datetime2}
+
 	% Microtyping: The microtype package has several options that affect the way the document is compiled, these go here.
 
 		\usepackage[final,tracking=true,kerning=true,spacing=true]{microtype}
@@ -385,7 +388,7 @@
 
 	% \renewcommand\thefootnote{\textcolor{red}{\arabic{footnote}}} % Will make the indecies used in footnotes red.
 
-	\newcommand{\degrees}{\, ^{\circ}\mathrm{C}}
+	%\newcommand{\degrees}{\, ^{\circ}\mathrm{C}}
 	%\newcommand{\cmc}{$\mathrm{cm}^{-3}$}
 
 	% For tables in multicolumn.
@@ -437,42 +440,78 @@
 % Title: The title that appears in the report is edited here.
 	%\renewcommand*\rmdefault{helvetica}
 
-	\title{ 
-	 	\begin{figure}[h]
+	% \title{ 
+	%  	\begin{figure}[h]
+	%  	    \centering
+	%  	    \includegraphics[scale=1.5]{Fig/QUT_Square_Black.eps}
+	%  	    %\caption{}
+	%  	    %\label{fig:}
+	%  	\end{figure}
+	% 		%\textbf{ST10 Bachelor of Science (Honours)} \\
+	% 		%~\\
+	% 		%\Huge 
+	% 		%\textbf{Honours Thesis} \\
+	% 		~\\
+	% 		%\rule{\textwidth}{2pt} \\
+	% 		\leavevmode\leaders\hrule height 0.7ex depth \dimexpr1pt-0.7ex\hfill\kern0pt
+	% 		\\
+	% 		\LARGE
+	% 		\textbf{Exploring the Nature of Dimethyl Sulphide and its Effects on Cloud Cover in the Great Barrier Reef} \\
+	% 		\leavevmode\leaders\hrule height 0.7ex depth \dimexpr1pt-0.7ex\hfill\kern0pt
+	% }
+	% \author{\textbf{David Burns}\\
+	% 		Supervisor: Professor Zoran Ristovski}
+	% \date{\today}
+
+	% A thesis submitted for the degree of Bachelor of Science (Honours)
+	% Discipline of Nanotechnology and Molecular Science, School of Chemistry, Physics and Mechanical Engineering, Science and Engineering Faculty,
+	% Queensland University of Technology,
+	% Brisbane, Australia
+	
+\begin{document}
+
+\begin{titlepage}
+	\begin{center}
+		\begin{figure}[h]
 	 	    \centering
-	 	    \includegraphics[scale=0.75]{Fig/QUT_Square_Black.eps}
+	 	    \includegraphics[scale=1.5]{Fig/QUT_Square_Black.eps}
 	 	    %\caption{}
 	 	    %\label{fig:}
 	 	\end{figure}
-			\textbf{ST10 Bachelor of Science (Honours)} \\
-			~\\
-			\Huge 
-			\textbf{Literature Review} \\
-			~\\
-			\Large
-			\textbf{Exploring the Nature of Dimethyl Sulphide and its Effects on Cloud Cover in the Great Barrier Reef} \\
-	}
-	\author{\textbf{David Burns}\\
-			Supervisor: Professor Zoran Ristovski}
-	\date{\today}
-	
-\begin{document}
+	 	~\\
+		\leavevmode\leaders\hrule height 0.7ex depth \dimexpr1pt-0.7ex\hfill\kern0pt\\
+		\LARGE
+		\textbf{Exploring the Nature of Dimethyl Sulphide and its Effects on Cloud Cover in the Great Barrier Reef} \\
+		\leavevmode\leaders\hrule height 0.7ex depth \dimexpr1pt-0.7ex\hfill\kern0pt\\
+		%~\\
+		%~\\
+		\vfill
+		\textbf{David Burns}\\
+		Supervisor: Professor Zoran Ristovski\\
+		\vfill
+		\printdayoff
+		\today
+		\\
+		\vfill
+		\large
+		\textit{A thesis submitted for the degree of Bachelor of Science (Honours)}\\
+		Queensland University of Technology\\
+		School of Chemistry, Physics, and Mechanical Engineering
+
+	\end{center}
+\end{titlepage}
 
 %-------------------------------------------------------------------------------------------------%
 % All the pre writing pages are introduced here
 \pagenumbering{roman}
 
-\maketitle
+%\maketitle
 
-\newpage
+\include{P0_Ch_Declaration}
 
-\newpage % Here to make the first page blank so when printed double sided the first page is on the right
+\include{P0_Ch_Abstract}
 
-\include{Ch_Abstract}
-
-\include{Ch_Acknowledgements}
-
-\include{Ch_Declaration}
+\include{P0_Ch_Acknowledgements}
 
 \tableofcontents
 
@@ -483,27 +522,41 @@
 \newpage
 
 %-------------------------------------------------------------------------------------------------%
-% All the actual writing pages are introduced here
+% The first part is the literature review section where you introduce the topic
 
 \pagenumbering{arabic}
 
 \part{Literature Review}
 
-\include{Ch_Introduction}
+\include{P1_Ch_Introduction}
 
-\include{Ch_Atmosphere}
+\include{P1_Ch_Atmosphere}
 
-\include{Ch_Dimethylsulfide}
+\include{P1_Ch_Dimethylsulfide}
 
-\include{Ch_GBR}
+% \include{P1_Ch_GBR}
 
-\include{Ch_Modelling}
+% \include{P1_Ch_Modelling}
 
-\include{Ch_DMSClimatology}
+% \include{P1_Ch_DMSClimatology}
 
-\include{Ch_Summary}
+% \include{P1_Ch_Summary}
+
+%-------------------------------------------------------------------------------------------------%
 
 \part{Research} % Please edit this biz 
+
+\include{P2_Ch_Methodology}
+
+\include{P2_Ch_Results}
+
+\include{P2_Ch_Analysis}
+
+\include{P2_Ch_Discussion} %perhaps analysis and discussion should go together?
+
+\include{P2_Ch_FutureResearch} %you could fold this into the discussion if it doesnt end up being very long
+
+\include{P2_Ch_Conclusions} %should this be external to the parts of the thesis?
 
 
 %-------------------------------------------------------------------------------------------------%
