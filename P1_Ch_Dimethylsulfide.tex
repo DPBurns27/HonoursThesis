@@ -1,4 +1,4 @@
-%!TEX root = Literature_Review_David_Burns.tex
+%!TEX root = Thesis_David_Burns.tex
 
 %Todo
 
@@ -26,6 +26,56 @@ Dimethyl sulphide (\gls{dms}) is a naturally produced chemical that has been the
 	\label{sec:chem}
 
 	The chemical processes that \gls{dms} and dimethyl sulfoxide \gls{dmso} undergo in the atmosphere are extremely complicated with many competing pathways (see \cref{fig:dmspath}). \citet{barnes:2006ug} have reviewed the extensive literature on this subject, with great detail. They split the problem into three sections, the first, \gls{dms} reactions and products, the second, \gls{dmso} reactions and products, and the third, multiphase chemistry of the \gls{dms} pathways.
+
+	\begin{figure}
+	    \centering
+	    \begin{subfigure}[t]{0.4\textwidth}
+	        %\includegraphics[width=\textwidth]{gull}
+	        \centering
+	        \chemfig{H_3C-[:-25]S-[:25]CH_3}
+	        \caption{\gls{dms}}
+	        \label{fig:dms}
+	    \end{subfigure}
+	    ~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc. 
+	      %(or a blank line to force the subfigure onto a new line)
+	    \begin{subfigure}[t]{0.4\textwidth}
+	        %\includegraphics[width=\textwidth]{tiger}
+	        \centering
+	        \chemfig{H_3C-S(=[2]O)(=[6]O)-CH_3}
+	        \caption{\gls{dmso}}
+	        \label{fig:dmso}
+	    \end{subfigure}
+	    ~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc. 
+	    %(or a blank line to force the subfigure onto a new line)
+	    \begin{subfigure}[t]{0.4\textwidth}
+	        %\includegraphics[width=\textwidth]{mouse}
+	        \centering
+	        \chemfig{H_3C-[:-25]\chemabove{S}{\scriptstyle\oplus}(-[:-90]CH_3)(-[:25]-[:-25]-[:25](=[:90]O)(-[:-25]O^{\ominus}))}
+	        \caption{\gls{dmsp}}
+	        \label{fig:dmsp}
+	    \end{subfigure}
+	    \begin{subfigure}[t]{0.4\textwidth}
+	        %\includegraphics[width=\textwidth]{mouse}
+	        \centering
+	        \chemfig{O=[:25]S(=[:90]O)(<:[:-20]OH)(<[:-80]OH)}
+	        \caption{\gls{h2so4}}
+	        \label{fig:h2so4}
+	    \end{subfigure}
+	    \caption{The chemical structure of important chemicals relating to \gls{dms} }\label{fig:chem}
+	\end{figure}
+
+% 	DMS\\
+% \chemfig{H_3C-[:-25]S-[:25]CH_3}\\
+% DMSO\\
+% \chemfig{H_3C-S(=[2]O)(=[6]O)-CH_3}\\
+% DMSP\\
+% \chemfig{H_3C-[:-25]\chemabove{S}{\scriptstyle\oplus}(-[:-90]CH_3)(-[:25]-[:-25]-[:25](=[:90]O)(-[:-25]O^{\ominus}))}\\
+% H2SO4\\
+% \chemfig{O=[:25]S(=[:90]O)(<:[:-20]OH)(<[:-80]OH)}\\
+% SO2\\
+% \chemfig{O=[:25]S=[:-25]O}
+
+
 
 	The reaction processes for \gls{dms} are reactions with the \gls{oh} radical, the \gls{no3} radical, and with Halogen Atoms and Oxides.  During the day the dominant reaction is the addition pathway through \gls{oh}, while at night it is the abstraction pathway through \gls{no3} as seen in \cref{fig:dmspath} \citep{barnes:2006ug}. Pathways involving halogen species are generally ignored in modelling due to low availability, though levels of hypobromite high enough to be influential have been measured in the troposphere \citep{platt2003role}.
 

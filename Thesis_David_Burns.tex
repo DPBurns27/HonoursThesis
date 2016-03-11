@@ -128,6 +128,10 @@
 		\usepackage{siunitx}
 		% example command is \SI{}{\micro\meter}
 
+	% Chemfig: used for making chemical structure figures
+		\usepackage{chemfig}
+		\renewcommand*\printatom[1]{\ensuremath{\mathsf{#1}}}
+
 	% Makes the pages look more fancy
 
 		\usepackage{fancyhdr}
@@ -162,6 +166,7 @@
 
 	% Tocbibind: These settings put the bibliography into the contents
 		%\usepackage[nottoc]{tocbibind}
+		\usepackage{tocbibind}
 
 	% BibLaTeX: The citestyles and bib file used in citations are edited here.
 
@@ -217,7 +222,8 @@
 
 	% Glossaries: Impliments a system for dealing with glossary terms, including abbreviations, nomenclature etc...
 	% Must appear after hyperref
-		\usepackage[hyperfirst=false,toc]{glossaries}
+		\usepackage[hyperfirst=false,toc,nonumberlist]{glossaries}
+		%nonumberlist hides the page numbers that an acronym is used on from the glossary
 		\newglossary*{chem}{Chemicals}
 		\newglossary*{abbr}{Abbreviations}
 		\makenoidxglossaries %Doesn't need makeindex runs
@@ -456,9 +462,11 @@
 
 \newpage
 
-\printnoidxglossaries
+\printnoidxglossaries%[nonumberlist]
 
 \newpage
+
+\include{P1_Ch_Introduction}
 
 %-------------------------------------------------------------------------------------------------%
 % The first part is the literature review section where you introduce the topic
@@ -467,19 +475,17 @@
 
 \part{Literature Review}
 
-\include{P1_Ch_Introduction}
-
 \include{P1_Ch_Atmosphere}
 
 \include{P1_Ch_Dimethylsulfide}
 
-% \include{P1_Ch_GBR}
+\include{P1_Ch_GBR}
 
-% \include{P1_Ch_Modelling}
+\include{P1_Ch_Modelling}
 
-% \include{P1_Ch_DMSClimatology}
+\include{P1_Ch_DMSClimatology}
 
-% \include{P1_Ch_Summary}
+\include{P1_Ch_Summary}
 
 %-------------------------------------------------------------------------------------------------%
 
@@ -500,6 +506,6 @@
 
 %-------------------------------------------------------------------------------------------------%
 % Bibliography is inserted
-\newpage
+%\newpage
 \printbibliography[heading=bibintoc]%[heading=bibnumbered]
 \end{document}
