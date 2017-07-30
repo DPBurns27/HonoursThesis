@@ -373,10 +373,6 @@
 		type=abbr,
 		name={RCM},
 		description={Regional Climate Model}}
-		\newglossaryentry{pdf}{
-		type=abbr,
-		name={PDF},
-		description={Probability Density Function}}
 		\newglossaryentry{sst}{
 		type=abbr,
 		name={SST},
@@ -389,7 +385,18 @@
 		type=abbr,
 		name={RH},
 		description={Relative Humidity}}
-		
+		\newglossaryentry{qld}{
+		type=abbr,
+		name={QLD},
+		description={Queensland}}
+		\newglossaryentry{bom}{
+		type=abbr,
+		name={BOM},
+		description={Bureau of Meteorology}}
+		\newglossaryentry{mpd}{
+		type=abbr,
+		name={MPD},
+		description={Mean Percentage Difference}}		
 
 % Command Creation: I comment out the ones I don't need, but keep them as templates for future commands.
 
@@ -447,10 +454,10 @@
 %-------------------------------------------------------------------------------------------------%
 % All the pre writing pages are introduced here
 \begin{document}
-
+\frontmatter
 \include{P0_Title}
 
-\pagenumbering{roman}
+%\pagenumbering{roman}
 
 \include{P0_Declaration}
 
@@ -466,12 +473,14 @@
 
 \newpage
 
+%\pagenumbering{arabic}
+
+\mainmatter
+
 \include{P1_Ch_Introduction}
 
 %-------------------------------------------------------------------------------------------------%
 % The first part is the literature review section where you introduce the topic
-
-\pagenumbering{arabic}
 
 \part{Literature Review}
 
@@ -485,25 +494,21 @@
 
 \include{P1_Ch_DMSClimatology}
 
-\include{P1_Ch_Summary}
+%\include{P1_Ch_Summary}
 
 %-------------------------------------------------------------------------------------------------%
 
-\part{Research} % Please edit this biz 
+\part{Research} % Please edit this biz, a different name?
 
 \include{P2_Ch_Methodology}
 
 \include{P2_Ch_Results}
 
-\include{P2_Ch_Analysis}
+\include{P2_Ch_AnalysisAndDiscussion} %perhaps analysis and discussion should go together?
 
-\include{P2_Ch_Discussion} %perhaps analysis and discussion should go together?
+\include{P3_Ch_Conclusion} %should this be external to the parts of the thesis?
 
-\include{P2_Ch_FutureResearch} %you could fold this into the discussion if it doesnt end up being very long
-
-\include{P2_Ch_Conclusions} %should this be external to the parts of the thesis?
-
-
+\backmatter
 %-------------------------------------------------------------------------------------------------%
 % Bibliography is inserted
 %\newpage

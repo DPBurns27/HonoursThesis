@@ -3,15 +3,21 @@
 %Todo
 
 % - Write a few paragraphs summarising what you did, what results you got, and what conclusiong you drew
-% - check your writing style with that writing program
-% - read through it for continuity and completeness
-% - get mum to edit
-% - get Eliza to fix your sentence structures
-% - get zoran to check content
-
-%Done
 
 \chapter*{Abstract}
 \label{ch:abst}
 \addcontentsline{toc}{chapter}{\nameref{ch:abst}}
 
+Climate change is a global issue whose contributions are varied and complex requiring in depth study. The CLAW hypothesis \citep{charlson:1987fw} proposed a feedback mechanism where stress driven marine biota produced Dimethyl sulphide (\gls{dms}) that influenced cloud cover through the creation of cloud condensation nuclei (\gls{ccn}). \gls{dms} is produced by phytoplankton but also by coral \citep{raina:2013fj}. As the climate shifts towards increased temperature, regions like the Great Barrier Reef (\gls{gbr}) are increasingly losing coral coverage \citep{hoeghguldberg:1999bi}. Changes in coral coverage will effect the \gls{gbr}'s production of \gls{dms} and thus any potential influences on cloud cover \citep{fischer2012atmospheric}. Modelling \gls{dms} as it is produced, transformed and transported through the atmosphere, in the \gls{gbr} region, will provide needed insight into the mechanisms surrounding \gls{dms}. This modelling process is dependant on accurate regional atmospheric modelling.
+
+Global models are well developed for the relationship between DMS production and cloud coverage, however they contain large uncertainties \citep{woodhouse:2010ed}. \citep{cainey:2007jj} indicates that this is due to regional variability and calls for regionally specific modelling. While Quinn et al. (2011) used global modelling to refute the global negative feedback loop in the CLAW hypothesis, they acknowledged that more regional modelling needs to be done to understand locally contained negative feedback loops. The satellite study performed by Leahy et al. (2013) indicated the importance of including variation from local sources when modelling, particularly in regions where coral bleaching occurs.
+
+This project focusses on regional atmospheric modelling of the \gls{gbr} using \gls{csiro}'s Conformal-Cubic Atmospheric Model (\gls{ccam}). The domains centred on the \gls{gbr} and Queensland coastline were chosen and modelling runs were performed. The output was explored and tested against measurement data obtained from the Bureau of Meteorology (\gls{bom}). As this project was tied to an experimental campaign, back trajectory modelling was performed in the Hybrid Single Particle Lagrangian Integrated Trajectory Model (\gls{hysplit}) to find suitable locations for the experimental work.
+
+The \gls{hysplit} modelling showed that the majority of the air arriving along the Queensland coast came from across the \gls{gbr}. A month, October, was chosen guided partly by the \gls{hysplit} work. Locations for data collection were also chosen along with a path and stopping points of a ship voyage.
+
+The \gls{ccam} data mirrored the \gls{hysplit} work, showing that the prevailing winds were the trade winds providing \gls{gbr} sourced air to the coast for the majority of October. The data also indicated a low pressure system moving across the \gls{gbr} effecting surface temperatures and wind speeds across the \gls{gbr}. This highlights the importance of regional atmospheric modelling for modelling \gls{dms} production by the reef and its flux into the atmosphere.
+
+The atmospheric conditons for the formation of clouds along the Queensland coastline are present in the \gls{ccam} model. The air in which these clouds are formed is almost certainly coming from across the \gls{gbr}. This fullfills some of the requirements for the \gls{gbr} influencing rainfall over the eastern part of Queensland. 
+
+A comparison between \gls{bom} measurement data and the \gls{ccam} data was performed. The results showed an underestimation by \gls{ccam} of the range of temperatures experienced at the \gls{bom} stations. The maximum wind speed was also underestimated by \gls{ccam}. These results have been forwarded to the team working on the \gls{ccam} model.
